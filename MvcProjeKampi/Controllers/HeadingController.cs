@@ -33,7 +33,7 @@ namespace MvcProjeKampi.Controllers
             List<SelectListItem> valuewriter = (from x in wm.GetList()
                                                 select new SelectListItem
                                                 {
-                                                    Text= x.WriterName + " " + x.WriterSurname,
+                                                    Text = x.WriterName + " " + x.WriterSurname,
                                                     Value = x.WriterID.ToString()
                                                 }).ToList();
             ViewBag.vlc = valuecategory;
@@ -48,5 +48,24 @@ namespace MvcProjeKampi.Controllers
             hm.HeadingAdd(p);
             return RedirectToAction("Index");
         }
+
+        public ActionResult EditHeading(int id)
+        {
+            List<SelectListItem> valuecategory = (from x in cm.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }).ToList();
+            ViewBag.vlc= valuecategory;
+            var value = hm.GetById(id);
+            return View(value);
+        }
+
+        //[HttpPost]
+        //public ActionResult EditHeading()
+        //{
+        //    return RedirectToAction("Index");
+        //}
     }
 }
