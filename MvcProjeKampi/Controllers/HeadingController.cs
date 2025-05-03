@@ -62,10 +62,33 @@ namespace MvcProjeKampi.Controllers
             return View(value);
         }
 
-        //[HttpPost]
-        //public ActionResult EditHeading()
-        //{
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public ActionResult EditHeading(Heading p)
+        {
+            hm.HeadingUpdate(p);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var value = hm.GetById(id);
+            if (value.HeadingStatus == true)
+            {
+                value.HeadingStatus = false;
+                hm.HeadingDelete(value);
+            }
+
+            else
+            {
+                value.HeadingStatus = true;
+                hm.HeadingDelete(value);
+            }            
+            return RedirectToAction("Index");
+
+            //var value = hm.GetById(id);
+            //value.HeadingStatus = false;
+            //hm.HeadingDelete(value);
+            //return RedirectToAction("Index");
+        }
     }
 }
