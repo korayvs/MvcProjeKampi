@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class mig_admin_table : DbMigration
+    public partial class mig_adminadd_upd : DbMigration
     {
         public override void Up()
         {
@@ -13,8 +13,7 @@
                     {
                         AdminId = c.Int(nullable: false, identity: true),
                         AdminUserName = c.String(maxLength: 50),
-                        AdminPasswordHash = c.Binary(),
-                        AdminPasswordSalt = c.Binary(),
+                        AdminPassword = c.String(maxLength: 50),
                         AdminRole = c.String(maxLength: 1),
                     })
                 .PrimaryKey(t => t.AdminId);

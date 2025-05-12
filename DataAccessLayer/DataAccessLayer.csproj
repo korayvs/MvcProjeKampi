@@ -116,9 +116,13 @@
     <Compile Include="Migrations\202505101652101_mig_addimage_file.Designer.cs">
       <DependentUpon>202505101652101_mig_addimage_file.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202505101757073_mig_admin_table.cs" />
-    <Compile Include="Migrations\202505101757073_mig_admin_table.Designer.cs">
-      <DependentUpon>202505101757073_mig_admin_table.cs</DependentUpon>
+    <Compile Include="Migrations\202505121629535_mig_admindel.cs" />
+    <Compile Include="Migrations\202505121629535_mig_admindel.Designer.cs">
+      <DependentUpon>202505121629535_mig_admindel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505121631126_mig_adminadd_upd.cs" />
+    <Compile Include="Migrations\202505121631126_mig_adminadd_upd.Designer.cs">
+      <DependentUpon>202505121631126_mig_adminadd_upd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,8 +171,11 @@
     <EmbeddedResource Include="Migrations\202505101652101_mig_addimage_file.resx">
       <DependentUpon>202505101652101_mig_addimage_file.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202505101757073_mig_admin_table.resx">
-      <DependentUpon>202505101757073_mig_admin_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202505121629535_mig_admindel.resx">
+      <DependentUpon>202505121629535_mig_admindel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505121631126_mig_adminadd_upd.resx">
+      <DependentUpon>202505121631126_mig_adminadd_upd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
