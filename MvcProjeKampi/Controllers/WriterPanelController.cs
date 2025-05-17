@@ -1,4 +1,6 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -13,6 +15,7 @@ namespace MvcProjeKampi.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         public ActionResult WriterProfile()
         {
@@ -21,7 +24,18 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult MyHeading()
         {
-            var values = hm.GetListByWriter();
+            //Context c = new Context();
+            //p = (string)Session["WriterMail"];
+            //var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+
+            string mail = (string)Session["WriterMail"];
+            var writer = wm.GetByWriterMail(mail);
+            if (writer == null)
+            {
+                return RedirectToAction("ErrorPages", "Page404");
+            }
+
+            var values = hm.GetListByWriter(writer.WriterID);
             return View(values);
         }
 
@@ -40,8 +54,11 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading p)
         {
+            string mail = (string)Session["WriterMail"];
+            var writer = wm.GetByWriterMail(mail);
+
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.WriterID = 4;
+            p.WriterID = writer.WriterID;
             p.HeadingStatus = true;
             hm.HeadingAdd(p);
             return RedirectToAction("MyHeading");
@@ -64,6 +81,23 @@ namespace MvcProjeKampi.Controllers
         public ActionResult UpdateHeading(Heading p)
         {
             hm.HeadingUpdate(p);
+            return RedirectToAction("MyHeading");
+        }
+
+        public ActionResult DelHeading(int id)
+        {
+            var value = hm.GetById(id);
+            if (value.HeadingStatus == true)
+            {
+                value.HeadingStatus = false;
+                hm.HeadingDelete(value);
+            }
+
+            else
+            {
+                value.HeadingStatus = true;
+                hm.HeadingDelete(value);
+            }
             return RedirectToAction("MyHeading");
         }
     }

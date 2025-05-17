@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             return _writerdal.Get(x => x.WriterID == id);
         }
 
+        public Writer GetByWriterMail(string mail)
+        {
+            return _writerdal.Get(x => x.WriterMail == mail);
+        }
+
         public List<Writer> GetList()
         {
             return _writerdal.List();

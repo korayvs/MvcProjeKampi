@@ -50,8 +50,8 @@
                                 Oluşturan Yazar
                             </th>
                             @*<th style="width: 10%">
-                                Durum
-                            </th>*@
+                                    Durum
+                                </th>*@
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -68,6 +68,11 @@
                                 case "Tiyatro":
                                     color = "badge badge-warning";
                                     style = "";
+                                    break;
+
+                                case "Eğitim":
+                                    color = "badge badge-success";
+                                    style = "background-color:midnightblue";
                                     break;
 
                                 case "Spor":
@@ -166,21 +171,21 @@
                                 </td>
 
                                 @*<td>
-                                    @{
-                                        if (item.HeadingStatus == true)
-                                        {
-                                            status = "Aktif";
-                                            stcolor = "badge badge-success";
-                                        }
+                                        @{
+                                            if (item.HeadingStatus == true)
+                                            {
+                                                status = "Aktif";
+                                                stcolor = "badge badge-success";
+                                            }
 
-                                        else
-                                        {
-                                            status = "Pasif";
-                                            stcolor = "badge badge-danger";
+                                            else
+                                            {
+                                                status = "Pasif";
+                                                stcolor = "badge badge-danger";
+                                            }
                                         }
-                                    }
-                                    <span class="@stcolor">@status</span>
-                                </td>*@
+                                        <span class="@stcolor">@status</span>
+                                    </td>*@
 
                                 <td class="project-state">
                                     <span class="@color" style="@style">@item.Category.CategoryName</span>
@@ -196,28 +201,28 @@
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DelHeading/@item.HeadingID">
                                         <i class="fas fa-trash-alt">
                                         </i>
                                         Sil
                                     </a>
 
                                     @*@{
-                                        if (item.HeadingStatus == false)
-                                        {
-                                            <a class="btn btn-success btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
-                                                <i class="fa fa-check"></i> Aktif Yap
-                                            </a>
-                                        }
+                                            if (item.HeadingStatus == false)
+                                            {
+                                                <a class="btn btn-success btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
+                                                    <i class="fa fa-check"></i> Aktif Yap
+                                                </a>
+                                            }
 
-                                        else
-                                        {
-                                            <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
-                                                <i class="fa fa-ban"></i>
-                                                Pasif Yap
-                                            </a>
-                                        }
-                                    }*@
+                                            else
+                                            {
+                                                <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
+                                                    <i class="fa fa-ban"></i>
+                                                    Pasif Yap
+                                                </a>
+                                            }
+                                        }*@
 
                                 </td>
                             </tr>
