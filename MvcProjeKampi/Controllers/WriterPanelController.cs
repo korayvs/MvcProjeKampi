@@ -16,6 +16,7 @@ namespace MvcProjeKampi.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        //Context c = new Context();
 
         public ActionResult WriterProfile()
         {
@@ -23,8 +24,7 @@ namespace MvcProjeKampi.Controllers
         }
 
         public ActionResult MyHeading()
-        {
-            //Context c = new Context();
+        {            
             //p = (string)Session["WriterMail"];
             //var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
 
@@ -40,7 +40,9 @@ namespace MvcProjeKampi.Controllers
         }
 
         public ActionResult NewHeading()
-        {
+        {            
+            //ViewBag.m = deger;
+
             List<SelectListItem> valuecategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
@@ -54,6 +56,11 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading p)
         {
+            //string writermailinfo = (string)Session["WriterMail"];
+            //var writeridinfo = c.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterID).FirstOrDefault();
+            //ViewBag.d = writeridinfo;
+            //p.WriterID = writeridinfo;
+
             string mail = (string)Session["WriterMail"];
             var writer = wm.GetByWriterMail(mail);
 
@@ -99,6 +106,12 @@ namespace MvcProjeKampi.Controllers
                 hm.HeadingDelete(value);
             }
             return RedirectToAction("MyHeading");
+        }
+
+        public ActionResult AllHeading()
+        {
+            var headings = hm.GetList();
+            return View(headings);
         }
     }
 }

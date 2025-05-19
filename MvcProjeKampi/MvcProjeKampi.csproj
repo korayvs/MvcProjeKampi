@@ -141,6 +141,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
@@ -2594,6 +2595,11 @@
     <Content Include="Themas\login-form-20\scss\bootstrap\_variables.scss" />
     <Content Include="Themas\login-form-20\scss\style.scss" />
     <Content Include="Views\Login\WriterLogin.cshtml" />
+    <Content Include="Views\Default\Headings.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\WriterPanel\AllHeading.cshtml" />
+    <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
+    <Content Include="Views\WriterPanelContent\ToDoList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
