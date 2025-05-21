@@ -14,17 +14,32 @@ namespace MvcProjeKampi.Controllers
     public class WriterPanelMessageController : Controller
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         MessageValidator messageValidator = new MessageValidator();
 
         public ActionResult Inbox()
         {
-            var listin = mm.GetListInbox();
+            string mail = (string)Session["WriterMail"];
+            var writer = wm.GetByWriterMail(mail);
+            if (writer == null)
+            {
+                return RedirectToAction("ErrorPages", "Page404");
+            }
+
+            var listin = mm.GetListInbox(mail);
             return View(listin);
         }
 
         public ActionResult Sendbox()
         {
-            var listsend = mm.GetListSendbox();
+            string mail = (string)Session["WriterMail"];
+            var writer = wm.GetByWriterMail(mail);
+            if (writer == null)
+            {
+                return RedirectToAction("ErrorPages", "Page404");
+            }
+
+            var listsend = mm.GetListSendbox(mail);
             return View(listsend);
         }
 
@@ -53,10 +68,17 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message p)
         {
+            string sender = (string)Session["WriterMail"];
+            var writer = wm.GetByWriterMail(sender);
+            if (writer == null)
+            {
+                return RedirectToAction("ErrorPages", "Page404");
+            }
+
             ValidationResult results = messageValidator.Validate(p);
             if (results.IsValid)
             {
-                p.SenderMail = "gizem@hotmail.com";
+                p.SenderMail = sender;
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 mm.MessageAdd(p);
                 return RedirectToAction("Sendbox");

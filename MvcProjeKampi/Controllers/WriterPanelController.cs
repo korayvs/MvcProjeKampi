@@ -1,8 +1,11 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +19,43 @@ namespace MvcProjeKampi.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
         //Context c = new Context();
 
         public ActionResult WriterProfile()
         {
+            string mail = (string)Session["WriterMail"];
+            var writer = wm.GetByWriterMail(mail);
+            if (writer != null)
+            {
+                int id = writer.WriterID;
+                var value = wm.GetById(id);
+                return View(value);
+            }
+
+            else
+            {
+                return RedirectToAction("Page404", "ErrorList");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+            ValidationResult results = writerValidator.Validate(p);
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(p);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
             return View();
         }
 
@@ -32,7 +68,7 @@ namespace MvcProjeKampi.Controllers
             var writer = wm.GetByWriterMail(mail);
             if (writer == null)
             {
-                return RedirectToAction("ErrorPages", "Page404");
+                return RedirectToAction("Page404", "ErrorPages");
             }
 
             var values = hm.GetListByWriter(writer.WriterID);
@@ -108,9 +144,9 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int p = 1)
         {
-            var headings = hm.GetList();
+            var headings = hm.GetList().ToPagedList(p, 4);
             return View(headings);
         }
     }

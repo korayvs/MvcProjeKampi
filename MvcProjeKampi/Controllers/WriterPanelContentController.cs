@@ -26,7 +26,7 @@ namespace MvcProjeKampi.Controllers
             var writer = wm.GetByWriterMail(mail);
             if (writer == null)
             {
-                return RedirectToAction("ErrorPages", "Page404");
+                return RedirectToAction("Page404", "ErrorPages");
             }
 
             var values = cm.GetListByWriter(writer.WriterID);
@@ -46,7 +46,7 @@ namespace MvcProjeKampi.Controllers
             var writer = wm.GetByWriterMail(mail);
             if (writer == null)
             {
-                return RedirectToAction("ErrorPages", "Page404");
+                return RedirectToAction("Page404", "ErrorPages");
             }
 
             p.ContentDate = DateTime.Parse(DateTime.Now.ToShortDateString());

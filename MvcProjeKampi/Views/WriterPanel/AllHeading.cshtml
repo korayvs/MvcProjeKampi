@@ -1,10 +1,14 @@
-﻿@model List<EntityLayer.Concrete.Heading>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<EntityLayer.Concrete.Heading>
 @{
     ViewBag.Title = "AllHeading";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
     string color = "";
     string style = "";
 }
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 <!DOCTYPE html>
 <html>
@@ -230,3 +234,10 @@
     </section>
 </body>
 </html>
+@Html.PagedListPager((IPagedList)Model, p => Url.Action("AllHeading", new { p }))
+
+@*@Html.PagedListPager((IPagedList)Model, p => Url.Action("AllHeading", new { p }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})*@
