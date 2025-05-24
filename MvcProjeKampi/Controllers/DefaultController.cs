@@ -30,7 +30,7 @@ namespace MvcProjeKampi.Controllers
             }
             else
             {
-                var result = cm.GetList();
+                var result = cm.GetList("");
                 return PartialView(result);
             }
             //var contentlist = cm.GetListByHeadingId(id);
