@@ -35,7 +35,7 @@ namespace MvcProjeKampi.Controllers
 
             else
             {
-                return RedirectToAction("Page404", "ErrorList");
+                return RedirectToAction("Page404", "ErrorPages");
             }
         }
 
