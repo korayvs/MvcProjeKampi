@@ -1,9 +1,9 @@
 # 📘 **MVC PROJECT CAMP**
 Bu proje, Murat Yücedağ tarafından YouTube üzerinde ücretsiz olarak sunulan MVC Proje Kampı eğitim serisi kapsamında geliştirilmiştir. Eğitim sürecinde öğrenilen teknik ve kavramlar, gerçek hayata uygulanabilir bir sözlük sistemi projesiyle pekiştirilmiştir.
 MVC Proje Kampı uygulaması, kullanıcıların farklı rollerle giriş yapabildiği, çok katmanlı mimariyle tasarlanmış bir platformdur. Sistemde üç temel kullanıcı rolü bulunmaktadır:
-🖥️  Vitrin (Genel Kullanıcı Arayüzü): Vitrin sayfası, tüm kullanıcılara açık olup, sol kısımdaki menü (Sidebar) üzerinden tüm başlıklara erişim sağlanabilir. Kullanıcılar, başlıklar altında yer alan yazarların entry'lerini detaylı şekilde görüntüleyebilir.
-✍️  Yazar: Giriş yaptıktan sonra kendi kontrol panelinden içerik üretme ve düzenleme işlemleri gerçekleştirebilir.
-🔑  Admin: Tüm sistemi yönetme yetkisine sahiptir. Paneli üzerinden tüm verilere ve işlemlere erişebilir.
+🖥️ - Vitrin (Genel Kullanıcı Arayüzü): Vitrin sayfası, tüm kullanıcılara açık olup, sol kısımdaki menü (Sidebar) üzerinden tüm başlıklara erişim sağlanabilir. Kullanıcılar, başlıklar altında yer alan yazarların entry'lerini detaylı şekilde görüntüleyebilir.
+✍️ - Yazar: Giriş yaptıktan sonra kendi kontrol panelinden içerik üretme ve düzenleme işlemleri gerçekleştirebilir.
+🔑 - Admin: Tüm sistemi yönetme yetkisine sahiptir. Paneli üzerinden tüm verilere ve işlemlere erişebilir.
 ## 🛠️ Kullanılan Teknolojiler ve Mimariler
 - Katmanlı Mimari (N-Tier Architecture): Business, DataAccess, Entity, UI olmak üzere dört temel katmandan oluşur.
 - OOP (Nesne Yönelimli Programlama)
