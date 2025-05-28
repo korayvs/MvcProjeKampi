@@ -25,5 +25,8 @@ MVC Proje Kampı uygulaması, kullanıcıların farklı rollerle giriş yapabild
 * SOLID prensiplerine uygun yazılım mimarisi ve kodlama standartları
 
 ### **Vitrin**
+-
 ### **Admin Paneli**
+-
 ### **Yazar Paneli**
+-
