@@ -24,9 +24,9 @@ MVC Proje Kampı uygulaması, kullanıcıların farklı rollerle giriş yapabild
 * Session Allow Anonymous
 * SOLID prensiplerine uygun yazılım mimarisi ve kodlama standartları
 
-### **Vitrin**
+### 🖥️ **Vitrin**
 -
-### **Admin Paneli**
+### 🔐 **Admin Paneli**
 -
-### **Yazar Paneli**
+### ✍️ **Yazar Paneli**
 -
