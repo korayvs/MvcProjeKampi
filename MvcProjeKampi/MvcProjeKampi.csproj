@@ -2651,7 +2651,6 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\WriterPanel\AllHeading.cshtml" />
     <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
-    <Content Include="Views\WriterPanelContent\ToDoList.cshtml" />
     <Content Include="Views\Test\Test3.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Themas\AdminLTE-3.0.4\showcase\webfonts\fa-brands-400.eot" />

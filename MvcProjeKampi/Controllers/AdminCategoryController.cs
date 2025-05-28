@@ -62,8 +62,21 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult EditCategory(Category p)
         {
-            cm.CategoryUpdate(p);
-            return RedirectToAction("Index");
+            CategoryValidator categoryValidator = new CategoryValidator();
+            ValidationResult results = categoryValidator.Validate(p);
+            if (results.IsValid)
+            {
+                cm.CategoryUpdate(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }

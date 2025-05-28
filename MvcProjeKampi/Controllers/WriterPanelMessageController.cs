@@ -23,7 +23,7 @@ namespace MvcProjeKampi.Controllers
             var writer = wm.GetByWriterMail(mail);
             if (writer == null)
             {
-                return RedirectToAction("ErrorPages", "Page404");
+                return RedirectToAction("Page404", "ErrorPages");
             }
 
             var listin = mm.GetListInbox(mail);
@@ -36,7 +36,7 @@ namespace MvcProjeKampi.Controllers
             var writer = wm.GetByWriterMail(mail);
             if (writer == null)
             {
-                return RedirectToAction("ErrorPages", "Page404");
+                return RedirectToAction("Page404", "ErrorPages");
             }
 
             var listsend = mm.GetListSendbox(mail);
@@ -45,6 +45,9 @@ namespace MvcProjeKampi.Controllers
 
         public PartialViewResult MessageList()
         {
+            string mail = (string)Session["WriterMail"];
+            ViewBag.inb = mm.GetListInbox(mail).Count();
+            ViewBag.send = mm.GetListSendbox(mail).Count();  
             return PartialView();
         }
 
@@ -72,7 +75,7 @@ namespace MvcProjeKampi.Controllers
             var writer = wm.GetByWriterMail(sender);
             if (writer == null)
             {
-                return RedirectToAction("ErrorPages", "Page404");
+                return RedirectToAction("Page404", "ErrorPages");
             }
 
             ValidationResult results = messageValidator.Validate(p);

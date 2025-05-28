@@ -14,12 +14,15 @@
         @Html.HiddenFor(x => x.AdminId)
         <label>Kullanıcı Adı</label>
         @Html.TextBoxFor(x => x.AdminUserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AdminUserName, "", new { @class = "text-danger" })
         <br />
-        <label>Açıklama</label>
+        <label>Şifre</label>
         @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @class = "text-danger" })
         <br />
         <label>Rolü</label>
-        @Html.DropDownListFor(x => x.AdminRole, (List<SelectListItem>)ViewBag.vlr, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.AdminRole, new SelectList(ViewBag.vlr, "Value", "Text"), "Rol Seçin", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AdminRole, "", new { @class = "text-danger" })
         <br />
         <button class="btn btn-info">Güncelle</button>
 
