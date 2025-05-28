@@ -7,9 +7,9 @@ MVC Proje Kampı uygulaması, kullanıcıların farklı rollerle giriş yapabild
 ## 🛠️ Kullanılan Teknolojiler ve Mimariler
 * Katmanlı Mimari (N-Tier Architecture): Business, DataAccess, Entity, UI olmak üzere dört temel katmandan oluşur.
 - OOP (Nesne Yönelimli Programlama)
-* Generic Repository Pattern ile veri erişim soyutlaması
+- Generic Repository Pattern ile veri erişim soyutlaması
 - Authentication & Authorization mekanizmaları
-* Code First yaklaşımıyla veritabanı yönetimi
+- Code First yaklaşımıyla veritabanı yönetimi
 - Entity Framework ve Fluent Validation ile model ve veri doğrulama işlemleri
 * ASP.NET Core Identity ile kullanıcı yönetimi
 * Session kullanımıyla kullanıcı bilgisi takibi
