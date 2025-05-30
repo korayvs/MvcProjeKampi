@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace MvcProjeKampi.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
         [Authorize(Roles ="B")]
         public ActionResult Index()
         {
@@ -77,6 +79,12 @@ namespace MvcProjeKampi.Controllers
                 }
             }
             return View();
+        }
+
+        public ActionResult HeadingByCategory (int id)
+        {
+            var values = hm.HeadingByCategory(id);
+            return View(values);
         }
     }
 }

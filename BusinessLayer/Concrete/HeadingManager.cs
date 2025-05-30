@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             _headingDal.Insert(heading);
         }
 
+        public List<Heading> HeadingByCategory(int id)
+        {
+            return _headingDal.List(x => x.CategoryID == id);
+        }
+
         public void HeadingDelete(Heading heading)
         {
             _headingDal.Update(heading);

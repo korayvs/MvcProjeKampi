@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
 <br />
 <table class="table table-bordered">
 
@@ -22,7 +24,7 @@
             <td>@item.CategoryName</td>
             <td><a href="/AdminCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
             <td><a href="/AdminCategory/EditCategory/@item.CategoryID" class="btn btn-info">Güncelle</a></td>
-            <td><a href="#" class="btn btn-default" style="background-color:coral; color:white">Başlıklar</a></td>
+            <td><a href="/AdminCategory/HeadingByCategory/@item.CategoryID" class="btn btn-default" style="background-color:coral; color:white">Başlıklar</a></td>
         </tr>
     }
 
