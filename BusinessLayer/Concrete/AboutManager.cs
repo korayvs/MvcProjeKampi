@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
 
         public void AboutDelete(About about)
         {
-            _aboutdal.Delete(about);
+            _aboutdal.Update(about);
         }
 
         public void AboutUpdate(About about)

@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             _contact.Insert(contact);
         }
 
+        public int ContactCountx()
+        {
+            return _contact.ContactCount();
+        }
+
         public void ContactDelete(Contact contact)
         {
             _contact.Delete(contact);

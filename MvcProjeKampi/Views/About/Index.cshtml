@@ -2,17 +2,20 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string status = "";
+    string color = "";
 }
 
 <h2>Hakkımda Veri Listesi</h2>
 
+<br />
 <table class="table table-bordered">
 
     <tr>
-        <th>#</th>
+        <th style="width: 5%">#</th>
         <th>Hakkımda Başlığı</th>
-        <th>Aktif Yap</th>
-        <th>Pasif Yap</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
     </tr>
 
     @foreach (var item in Model)
@@ -20,8 +23,46 @@
         <tr>
             <th>@item.AboutID</th>
             <td>Başlık</td>
-            <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
+            <td>
+                @{
+                    if (item.AboutStatus == true)
+                    {
+                        status = "Aktif";
+                        color = "badge badge-success";
+                    }
+
+                    else
+                    {
+                        status = "Pasif";
+                        color = "badge badge-danger";
+                    }
+                }
+                <span class="@color">@status</span>
+            </td>
+            <td class="project-actions">
+
+                <a class="btn btn-info btn-sm" href="/About/UpdateAbout/@item.AboutID">
+                    Güncelle
+                </a>
+
+                @{
+                    if (item.AboutStatus == false)
+                    {
+                        <a class="btn btn-success btn-sm" href="/About/StatusAbout/@item.AboutID">
+                            <i class="fa fa-check"></i> Aktif Yap
+                        </a>
+                    }
+
+                    else
+                    {
+                        <a class="btn btn-danger btn-sm" href="/About/StatusAbout/@item.AboutID">
+                            <i class="fa fa-ban"></i>
+                            Pasif Yap
+                        </a>
+                    }
+                }
+
+            </td>
         </tr>
     }
 

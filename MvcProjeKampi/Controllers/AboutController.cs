@@ -35,5 +35,35 @@ namespace MvcProjeKampi.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult UpdateAbout(int id)
+        {
+            var value = abm.GetById(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateAbout(About p)
+        {
+            abm.AboutUpdate(p);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult StatusAbout(int id)
+        {
+            var value = abm.GetById(id);
+            if (value.AboutStatus == true)
+            {
+                value.AboutStatus = false;
+                abm.AboutUpdate(value);
+            }
+
+            else
+            {
+                value.AboutStatus = true;
+                abm.AboutUpdate(value);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

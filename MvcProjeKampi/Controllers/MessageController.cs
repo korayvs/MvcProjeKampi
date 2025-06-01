@@ -66,10 +66,5 @@ namespace MvcProjeKampi.Controllers
 
             return View();
         }
-
-        //public ActionResult DraftMessages()
-        //{
-        //    return View();
-        //}
     }
 }

@@ -11,5 +11,9 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfContactDal : GenericRepository<Contact>, IContactDal
     {
+        public int ContactCount()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

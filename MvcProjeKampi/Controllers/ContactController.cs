@@ -28,6 +28,8 @@ namespace MvcProjeKampi.Controllers
 
         public PartialViewResult ContactPartial()
         {
+            string mail = (string)Session["AdminUserName"];
+            ViewBag.ccount = cm.ContactCountx();
             return PartialView();
         }
     }

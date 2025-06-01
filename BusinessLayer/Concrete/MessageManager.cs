@@ -18,6 +18,16 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
+        public int DeletedCount(string p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int DraftsCount(string p)
+        {
+            throw new NotImplementedException();
+        }
+
         public Message GetById(int id)
         {
             return _messageDal.Get(x => x.MessageId == id);
@@ -44,6 +54,16 @@ namespace BusinessLayer.Concrete
         }
 
         public void MessageUpdate(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int ReceivedMessageCount(string p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int SendMessageCount(string p)
         {
             throw new NotImplementedException();
         }

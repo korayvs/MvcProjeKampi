@@ -2674,6 +2674,7 @@
     <Content Include="Views\Authorization\EditAdmin.cshtml" />
     <Content Include="Views\Writer\HeadingsByWriter.cshtml" />
     <Content Include="Views\AdminCategory\HeadingByCategory.cshtml" />
+    <Content Include="Views\About\UpdateAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

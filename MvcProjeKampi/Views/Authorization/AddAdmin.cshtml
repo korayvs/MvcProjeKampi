@@ -22,7 +22,7 @@
         @Html.DropDownListFor(x => x.AdminRole, new SelectList(ViewBag.vlr, "Value", "Text"), "Rol Seçin", new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.AdminRole, "", new { @class = "text-danger" })
         <br />
-        <button class="btn btn-success">Kaydet</button>
+        <button class="btn btn-primary">Kaydet</button>
 
     </div>
 }

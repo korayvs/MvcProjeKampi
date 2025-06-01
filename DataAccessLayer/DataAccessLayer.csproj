@@ -126,6 +126,14 @@
     <Compile Include="Migrations\202505121631126_mig_adminadd_upd.Designer.cs">
       <DependentUpon>202505121631126_mig_adminadd_upd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202506011444479_mig_add_about_status.cs" />
+    <Compile Include="Migrations\202506011444479_mig_add_about_status.Designer.cs">
+      <DependentUpon>202506011444479_mig_add_about_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506011558276_mig_add_admin_status.cs" />
+    <Compile Include="Migrations\202506011558276_mig_add_admin_status.Designer.cs">
+      <DependentUpon>202506011558276_mig_add_admin_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -178,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505121631126_mig_adminadd_upd.resx">
       <DependentUpon>202505121631126_mig_adminadd_upd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506011444479_mig_add_about_status.resx">
+      <DependentUpon>202506011444479_mig_add_about_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506011558276_mig_add_admin_status.resx">
+      <DependentUpon>202506011558276_mig_add_admin_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

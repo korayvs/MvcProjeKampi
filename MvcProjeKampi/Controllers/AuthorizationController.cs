@@ -114,5 +114,22 @@ namespace MvcProjeKampi.Controllers
             adm.AdminUpdate(admin);
             return RedirectToAction("Index");
         }
+
+        public ActionResult StatusAdmin(int id)
+        {
+            var value = adm.GetById(id);
+            if (value.AdminStatus == true)
+            {
+                value.AdminStatus = false;
+                adm.AdminUpdate(value);
+            }
+
+            else
+            {
+                value.AdminStatus = true;
+                adm.AdminUpdate(value);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

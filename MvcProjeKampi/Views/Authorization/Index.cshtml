@@ -2,29 +2,64 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    string status = "";
+    string color = "";
 }
 
 <br />
 <table class="table table-bordered">
 
     <tr>
-        <th>#</th>
         <th>Kullanıcı Mail</th>
         <th>Yetki</th>
         <th>Durum</th>
-        <th>Pasif Yap</th>
-        <th>Yetki Değiştir</th>
+        <th>İşlemler</th>
     </tr>
 
     @foreach (var item in Model)
     {
+        count++;
         <tr>
-            <th>@item.AdminId</th>
             <td>@item.AdminUserName</td>
             <td>@item.AdminRole</td>
-            <td>Aktif</td>
-            <td><a href="/Authorization/Admin/@item.AdminId" class="btn btn-danger">Pasif Yap</a></td>
-            <td><a href="/Authorization/EditAdmin/@item.AdminId" class="btn btn-info">Yetki Değiştir</a></td>
+            <td>
+                @{
+                    if (item.AdminStatus == true)
+                    {
+                        status = "Aktif";
+                        color = "badge badge-success";
+                    }
+
+                    else
+                    {
+                        status = "Pasif";
+                        color = "badge badge-danger";
+                    }
+                }
+                <span class="@color">@status</span>
+            </td>
+
+            <td>
+                <a href="/Authorization/EditAdmin/@item.AdminId" class="btn btn-info btn-sm">Yetki Değiştir</a>
+
+                @{
+                    if (item.AdminStatus == false)
+                    {
+                        <a class="btn btn-success btn-sm" href="/Authorization/StatusAdmin/@item.AdminId">
+                            <i class="fa fa-check"></i> Aktif Yap
+                        </a>
+                    }
+
+                    else
+                    {
+                        <a class="btn btn-danger btn-sm" href="/Authorization/StatusAdmin/@item.AdminId">
+                            <i class="fa fa-ban"></i>
+                            Pasif Yap
+                        </a>
+                    }
+                }
+            </td>
         </tr>
     }
 
