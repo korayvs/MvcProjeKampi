@@ -12,6 +12,7 @@ namespace MvcProjeKampi.Controllers
     public class ContactController : Controller
     {
         ContactManager cm = new ContactManager(new EfContactDal());
+        MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator cv = new ContactValidator();
 
         public ActionResult Index()
@@ -30,6 +31,10 @@ namespace MvcProjeKampi.Controllers
         {
             string mail = (string)Session["AdminUserName"];
             ViewBag.ccount = cm.ContactCountx();
+            ViewBag.smc = mm.SendMessageCountx(mail);
+            ViewBag.rmc = mm.ReceivedMessageCountx(mail);
+            ViewBag.dcount = mm.DraftsCountx(mail);
+            ViewBag.delcount = mm.DeletedCountx(mail);
             return PartialView();
         }
     }

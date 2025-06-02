@@ -25,6 +25,7 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult Sendbox(string p)
         {
+            var mail = (string)Session["AdminUserName"];
             var listsend = mm.GetListSendbox(p);
             return View(listsend);
         }
@@ -65,6 +66,14 @@ namespace MvcProjeKampi.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult DeleteMessage(int id)
+        {
+            var values = mm.GetById(id);
+            values.IsDeleted = true;
+            mm.MessageUpdate(values);
+            return RedirectToAction("Inbox");
         }
     }
 }

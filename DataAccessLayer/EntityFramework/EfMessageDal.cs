@@ -11,5 +11,24 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfMessageDal : GenericRepository<Message>, IMessageDal
     {
+        public int ReceivedMessageCount(string p)
+        {
+            return _object.Count(x => x.ReceiverMail == p && x.IsDeleted == false);
+        }
+
+        public int SendMessageCount(string p)
+        {
+            return _object.Count(x => x.SenderMail == p && x.IsDeleted == false && x.IsDraft == false);
+        }
+
+        public int DraftsCount(string p)
+        {
+            return _object.Count(x => x.SenderMail == p && x.IsDeleted == false && x.IsDraft == true);
+        }
+
+        public int DeletedCount(string p)
+        {
+            return _object.Count(x => x.ReceiverMail == p && x.IsDeleted == true && x.IsDraft == false);
+        }
     }
 }

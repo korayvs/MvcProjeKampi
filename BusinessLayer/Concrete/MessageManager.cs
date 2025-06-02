@@ -18,19 +18,29 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
-        public int DeletedCount(string p)
+        public int DeletedCountx(string p)
         {
-            throw new NotImplementedException();
+            return _messageDal.DeletedCount(p);
         }
 
-        public int DraftsCount(string p)
+        public int DraftsCountx(string p)
         {
-            throw new NotImplementedException();
+            return _messageDal.DraftsCount(p);
         }
 
         public Message GetById(int id)
         {
             return _messageDal.Get(x => x.MessageId == id);
+        }
+
+        public List<Message> GetListDeleted(string p)
+        {
+            return _messageDal.List(x => x.ReceiverMail == p && x.IsDeleted == true);
+        }
+
+        public List<Message> GetListDrafts(string p)
+        {
+            return _messageDal.List(x => x.SenderMail == p && x.IsDraft == true);
         }
 
         public List<Message> GetListInbox(string p)
@@ -50,22 +60,22 @@ namespace BusinessLayer.Concrete
 
         public void MessageDelete(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(message);
         }
 
         public void MessageUpdate(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(message);
         }
 
-        public int ReceivedMessageCount(string p)
+        public int ReceivedMessageCountx(string p)
         {
-            throw new NotImplementedException();
+            return _messageDal.ReceivedMessageCount(p);
         }
 
-        public int SendMessageCount(string p)
+        public int SendMessageCountx(string p)
         {
-            throw new NotImplementedException();
+            return _messageDal.SendMessageCount(p);
         }
     }
 }

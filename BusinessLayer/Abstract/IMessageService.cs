@@ -15,9 +15,11 @@ namespace BusinessLayer.Abstract
         Message GetById(int id);
         void MessageDelete(Message message);
         void MessageUpdate(Message message);
-        int SendMessageCount(string p);
-        int ReceivedMessageCount(string p);
-        int DraftsCount(string p);
-        int DeletedCount(string p);
+        int SendMessageCountx(string p);
+        int ReceivedMessageCountx(string p);
+        int DraftsCountx(string p);
+        int DeletedCountx(string p);
+        List<Message> GetListDrafts(string p);
+        List<Message> GetListDeleted(string p);
     }
 }

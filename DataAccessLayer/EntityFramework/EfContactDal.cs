@@ -13,7 +13,7 @@ namespace DataAccessLayer.EntityFramework
     {
         public int ContactCount()
         {
-            throw new NotImplementedException();
+            return _object.Count();
         }
     }
 }

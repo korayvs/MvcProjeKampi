@@ -1,6 +1,6 @@
 ﻿@model EntityLayer.Concrete.Message
 @{
-    ViewBag.Title = "NewMessage";
+    ViewBag.Title = "AddDraft";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -55,7 +55,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     @*<label>Alıcı Adı</label>*@
-                                    <input class="form-control" name="ReceiverMail" placeholder="Alıcı:" /> @*@Html.TextBoxFor(x => x.ReceiverMail, new { @class = "form-control" })*@
+                                    <input class="form-control" name="ReceiverMail" placeholder="Alıcı:" /> 
                                     @Html.ValidationMessageFor(x => x.ReceiverMail, "", new { @class = "text-danger" })
                                     <br />
                                 </div>
@@ -80,8 +80,8 @@
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet</button>
-                                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                                    <button type="button" class="btn btn-default" onclick="submitForm('/Draft/AddDraft')"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet</button>
+                                    <button type="submit" class="btn btn-primary" onclick="submitForm('/Message/NewMessage')"><i class="far fa-envelope"></i> Gönder</button>
                                 </div>
                                 <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal</button>
                             </div>
@@ -115,7 +115,6 @@
         $(function () {
             //Add text editor
             $('#compose-textarea').summernote()
-        })
-    </script>
+        })</script>
 </body>
 </html>
