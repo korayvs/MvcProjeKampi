@@ -26,7 +26,8 @@ MVC Proje Kampı uygulaması, kullanıcıların farklı rollerle giriş yapabild
 * SOLID prensiplerine uygun yazılım mimarisi ve kodlama standartları
 
 ### 🖥️ **Vitrin**
--
+![vt1](https://github.com/user-attachments/assets/914d0685-f5b5-4288-9f0b-a9229975bf0b)
+
 ### 🔐 **Admin Paneli**
 -
 ### ✍️ **Yazar Paneli**
