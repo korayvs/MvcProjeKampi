@@ -27,8 +27,11 @@ MVC Proje Kampı uygulaması, kullanıcıların farklı rollerle giriş yapabild
 
 ### 🖥️ **Vitrin**
 ![vt1](https://github.com/user-attachments/assets/914d0685-f5b5-4288-9f0b-a9229975bf0b)
+
 ![vt2](https://github.com/user-attachments/assets/4f475348-5c18-4667-9bcc-929403693e24)
+
 ![vt3](https://github.com/user-attachments/assets/bc2a89e1-e1c3-46af-a496-4f7f42e467f6)
+
 ![vt4](https://github.com/user-attachments/assets/052e2ef9-06d7-4aee-9273-0001df8e3e8f)
 
 ### 📚 **Sözlük**
